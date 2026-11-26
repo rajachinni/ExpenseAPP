@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 1080" width="1480" height="1080" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3c4043"/>
+    </marker>
+    <marker id="arrO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#E8710A"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1A73E8"/>
+    </marker>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1480" height="1080" fill="#FAFBFC"/>
+
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#202124">Expense Tracker — New Server-Based Architecture (proposed)</text>
+  <text x="40" y="80" font-size="14.5" fill="#5f6368">iPhone SMS → Shortcut → per-user Google Form (outbox) → Apps Script push → self-hosted Spring Boot + PostgreSQL → web app · multi-user · draft 16 Nov 2026</text>
+
+  <!-- ===================== LANE 1: iPhone ===================== -->
+  <rect x="30" y="105" width="300" height="780" rx="18" fill="#EEF3FE" stroke="#4A7BE0" stroke-width="1.5"/>
+  <text x="50" y="137" font-size="15" font-weight="700" fill="#2754B8" letter-spacing="0.6">iPHONE · PER USER</text>
+
+  <g filter="url(#sh)"><rect x="50" y="155" width="260" height="80" rx="12" fill="#fff" stroke="#C6D5F7"/></g>
+  <text x="68" y="183" font-size="15.5" font-weight="700" fill="#202124">Bank SMS</text>
+  <text x="68" y="206" font-size="13" fill="#3c4043">Debits, credits, OTPs, promos</text>
+  <text x="68" y="224" font-size="13" fill="#3c4043">from any bank the user has</text>
+
+  <g filter="url(#sh)"><rect x="50" y="275" width="260" height="80" rx="12" fill="#fff" stroke="#C6D5F7"/></g>
+  <text x="68" y="303" font-size="15.5" font-weight="700" fill="#202124">iOS Automation</text>
+  <text x="68" y="326" font-size="13" fill="#3c4043">Message contains bank name</text>
+  <text x="68" y="344" font-size="13" fill="#3c4043">→ run Shortcut immediately</text>
+
+  <g filter="url(#sh)"><rect x="50" y="395" width="260" height="130" rx="12" fill="#fff" stroke="#4A7BE0" stroke-width="1.5"/></g>
+  <text x="68" y="423" font-size="15.5" font-weight="700" fill="#202124">Shortcut (unchanged)</text>
+  <text x="68" y="447" font-size="13" fill="#3c4043">• Auto: from the automation</text>
+  <text x="68" y="467" font-size="13" fill="#3c4043">• Manual hit: curated SMS</text>
+  <text x="68" y="487" font-size="13" fill="#3c4043">• POST SMS text to the</text>
+  <text x="80" y="505" font-size="13" fill="#3c4043">user's own Google Form</text>
+
+  <g><rect x="50" y="565" width="260" height="120" rx="12" fill="#F6F8FC" stroke="#C6D5F7" stroke-dasharray="5 4"/></g>
+  <text x="68" y="593" font-size="14" font-weight="700" fill="#2754B8">Each friend repeats this</text>
+  <text x="68" y="616" font-size="13" fill="#3c4043">Own iPhone + Shortcut</text>
+  <text x="68" y="636" font-size="13" fill="#3c4043">Own Form copied from template</text>
+  <text x="68" y="656" font-size="13" fill="#3c4043">Own ingest token</text>
+  <text x="68" y="676" font-size="13" fill="#3c4043">Own login (admin-made) + Tailscale</text>
+
+  <line x1="180" y1="235" x2="180" y2="271" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="180" y1="355" x2="180" y2="391" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- ===================== LANE 2: Google Forms ===================== -->
+  <rect x="350" y="105" width="300" height="780" rx="18" fill="#F5EEFC" stroke="#8E44D8" stroke-width="1.5"/>
+  <text x="370" y="137" font-size="15" font-weight="700" fill="#6A2BB5" letter-spacing="0.6">GOOGLE FORM · PER USER</text>
+
+  <g filter="url(#sh)"><rect x="370" y="155" width="260" height="130" rx="12" fill="#fff" stroke="#8E44D8" stroke-width="1.5"/></g>
+  <text x="388" y="183" font-size="15.5" font-weight="700" fill="#202124">Google Form (fresh)</text>
+  <text x="388" y="206" font-size="13" fill="#3c4043">Copied from a template Form</text>
+  <text x="388" y="226" font-size="13" fill="#3c4043">One field: SMS text</text>
+  <text x="388" y="250" font-size="13" font-weight="600" fill="#6A2BB5">Keeps every response =</text>
+  <text x="388" y="268" font-size="13" font-weight="600" fill="#6A2BB5">free, durable outbox</text>
+
+  <g filter="url(#sh)"><rect x="370" y="330" width="260" height="215" rx="12" fill="#FFF4E8" stroke="#E8710A" stroke-width="1.5"/></g>
+  <text x="388" y="358" font-size="15.5" font-weight="700" fill="#202124">Form-bound Apps Script</text>
+  <text x="388" y="382" font-family="Menlo, monospace" font-size="12.5" fill="#B45309">pushPending() →</text>
+  <text x="388" y="400" font-family="Menlo, monospace" font-size="12.5" fill="#B45309">POST /api/ingest</text>
+  <text x="388" y="422" font-size="13" fill="#3c4043">• Bearer = user's token</text>
+  <text x="388" y="442" font-size="13" fill="#3c4043">• Body: sms, responseId,</text>
+  <text x="400" y="460" font-size="13" fill="#3c4043">submittedAt</text>
+  <text x="388" y="480" font-size="13" fill="#3c4043">• HTTP 200 → move marker on</text>
+  <text x="388" y="500" font-size="13" fill="#3c4043">• Runs on submit and every</text>
+  <text x="400" y="518" font-size="13" fill="#3c4043">15 min · resends are deduped</text>
+
+  <g><rect x="370" y="585" width="260" height="100" rx="12" fill="#FBF8FE" stroke="#D7C2F0" stroke-dasharray="5 4"/></g>
+  <text x="388" y="613" font-size="14" font-weight="700" fill="#6A2BB5">Server down?</text>
+  <text x="388" y="636" font-size="13" fill="#3c4043">Nothing is lost — the Form</text>
+  <text x="388" y="656" font-size="13" fill="#3c4043">holds it and the retry sends</text>
+  <text x="388" y="676" font-size="13" fill="#3c4043">it once the server is back.</text>
+
+  <line x1="500" y1="285" x2="500" y2="326" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="508" y="311" font-size="12" fill="#5f6368">on submit + timer</text>
+
+  <!-- Shortcut -> Form -->
+  <path d="M310,460 H340 V220 H366" fill="none" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- ===================== LANE 3: Home server ===================== -->
+  <rect x="670" y="105" width="780" height="780" rx="18" fill="#EDF7EF" stroke="#34A853" stroke-width="1.5"/>
+  <text x="690" y="137" font-size="15" font-weight="700" fill="#1E7E34" letter-spacing="0.6">HOME SERVER · SELF-HOSTED</text>
+
+  <!-- Funnel strip -->
+  <rect x="690" y="152" width="740" height="44" rx="10" fill="#fff" stroke="#9AD3A8"/>
+  <text x="708" y="179" font-size="13.5" font-weight="700" fill="#202124">Tailscale</text>
+  <text x="790" y="179" font-size="13" fill="#3c4043"><tspan font-weight="700">Funnel:</tspan> public HTTPS → /api/ingest only  ·  <tspan font-weight="700">Serve:</tspan> web app, Tailscale members only</text>
+
+  <!-- Backend container -->
+  <rect x="690" y="212" width="740" height="478" rx="14" fill="#F7FBF8" stroke="#34A853" stroke-dasharray="6 4"/>
+  <text x="708" y="238" font-size="14" font-weight="700" fill="#1E7E34">Spring Boot backend · modular monolith (Docker)</text>
+
+  <!-- Ingest API -->
+  <g filter="url(#sh)"><rect x="708" y="255" width="222" height="170" rx="12" fill="#fff" stroke="#34A853" stroke-width="1.5"/></g>
+  <text x="724" y="283" font-size="15.5" font-weight="700" fill="#202124">Ingest API</text>
+  <text x="724" y="307" font-size="13" fill="#3c4043">1. Token → which user</text>
+  <text x="724" y="329" font-size="13" fill="#3c4043">2. Dedupe on responseId</text>
+  <text x="724" y="351" font-size="13" fill="#3c4043">3. Save raw SMS untouched</text>
+  <text x="736" y="369" font-size="12" fill="#5f6368">(single source of truth)</text>
+  <text x="724" y="391" font-size="13" fill="#3c4043">4. Reply 200 = ack</text>
+  <text x="724" y="413" font-size="13" fill="#3c4043">5. Hand to the engine</text>
+
+  <!-- Identification engine -->
+  <g filter="url(#sh)"><rect x="950" y="255" width="462" height="262" rx="12" fill="#fff" stroke="#34A853" stroke-width="1.5"/></g>
+  <text x="968" y="283" font-size="15.5" font-weight="700" fill="#202124">Identification engine</text>
+  <text x="1140" y="283" font-size="12" fill="#5f6368">per-user templates, merchants, categories</text>
+  <g font-size="13" fill="#3c4043">
+    <circle cx="977" cy="306" r="9" fill="#E6F4EA"/><text x="973" y="310.5" font-size="11.5" font-weight="700" fill="#1E7E34">1</text>
+    <text x="994" y="311">Same SMS text already stored → ignore as duplicate</text>
+    <circle cx="977" cy="334" r="9" fill="#E6F4EA"/><text x="973" y="338.5" font-size="11.5" font-weight="700" fill="#1E7E34">2</text>
+    <text x="994" y="339">Match a template (transaction / ignore) · none → UNPARSED</text>
+    <circle cx="977" cy="362" r="9" fill="#E6F4EA"/><text x="973" y="366.5" font-size="11.5" font-weight="700" fill="#1E7E34">3</text>
+    <text x="994" y="367">Normalise amount (paise) and date/time (IST)</text>
+    <circle cx="977" cy="390" r="9" fill="#E6F4EA"/><text x="973" y="394.5" font-size="11.5" font-weight="700" fill="#1E7E34">4</text>
+    <text x="994" y="395">Account from last-4 digits (savings / card / autopay)</text>
+    <circle cx="977" cy="418" r="9" fill="#E6F4EA"/><text x="973" y="422.5" font-size="11.5" font-weight="700" fill="#1E7E34">5</text>
+    <text x="994" y="423">Merchant via alias table (cleaned name → merchant)</text>
+    <circle cx="977" cy="446" r="9" fill="#E6F4EA"/><text x="973" y="450.5" font-size="11.5" font-weight="700" fill="#1E7E34">6</text>
+    <text x="994" y="451">Merchant → category → super category</text>
+    <circle cx="977" cy="474" r="9" fill="#E6F4EA"/><text x="973" y="478.5" font-size="11.5" font-weight="700" fill="#1E7E34">7</text>
+    <text x="994" y="479">Known merchant + category → <tspan font-weight="700" fill="#1E7E34">CONFIRMED</tspan></text>
+    <text x="994" y="499">otherwise, or merchant set to "always ask" → <tspan font-weight="700" fill="#C5221F">NEEDS_REVIEW</tspan></text>
+  </g>
+
+  <!-- Statement module -->
+  <g filter="url(#sh)"><rect x="708" y="445" width="222" height="225" rx="12" fill="#fff" stroke="#80868b" stroke-dasharray="5 4"/></g>
+  <text x="724" y="473" font-size="15.5" font-weight="700" fill="#202124">Statement module</text>
+  <text x="724" y="492" font-size="12" fill="#5f6368">phase 2 · format TBD</text>
+  <text x="724" y="516" font-size="13" fill="#3c4043">• Extract every row</text>
+  <text x="724" y="538" font-size="13" fill="#3c4043">• Match amount + date ±2d</text>
+  <text x="736" y="556" font-size="13" fill="#3c4043">+ account → <tspan font-weight="700" fill="#1A73E8">reconciled</tspan> flag</text>
+  <text x="724" y="578" font-size="13" fill="#3c4043">• No match → new txn</text>
+  <text x="724" y="600" font-size="13" fill="#3c4043">• Same fingerprint as a</text>
+  <text x="736" y="618" font-size="13" fill="#3c4043">past txn → reuse merchant</text>
+  <text x="736" y="636" font-size="13" fill="#3c4043">and category</text>
+  <text x="724" y="658" font-size="13" fill="#3c4043">• Else engine / review</text>
+
+  <!-- Web app -->
+  <g filter="url(#sh)"><rect x="950" y="537" width="462" height="133" rx="12" fill="#fff" stroke="#1A73E8" stroke-width="1.5"/></g>
+  <text x="968" y="565" font-size="15.5" font-weight="700" fill="#202124">Web app (phone + desktop)</text>
+  <text x="1178" y="565" font-size="12" fill="#5f6368">Tailscale-only · admin-made logins</text>
+  <text x="968" y="590" font-size="13" fill="#3c4043"><tspan font-weight="700">Review queue:</tspan> confirm · ignore · edit · split</text>
+  <text x="1070" y="608" font-size="13" fill="#3c4043">(my share + multi-category) · new template</text>
+  <text x="968" y="632" font-size="13" fill="#3c4043"><tspan font-weight="700">Monthly:</tspan> spend by category vs budget limit</text>
+  <text x="968" y="654" font-size="13" fill="#3c4043"><tspan font-weight="700">Yearly:</tspan> category × month and super category × month</text>
+
+  <!-- internal arrows -->
+  <line x1="930" y1="330" x2="946" y2="330" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="930" y1="490" x2="946" y2="490" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="950" y1="600" x2="934" y2="600" stroke="#1A73E8" stroke-width="1.6" marker-end="url(#arrB)"/>
+  <text x="936" y="590" font-size="11" fill="#1A73E8" text-anchor="end"></text>
+
+  <!-- Apps Script -> Ingest (through Funnel) -->
+  <path d="M630,400 H660 V330 H704" fill="none" stroke="#E8710A" stroke-width="2" marker-end="url(#arrO)"/>
+  <text x="560" y="565" font-size="12" fill="#B45309"></text>
+
+  <!-- PostgreSQL -->
+  <line x1="1060" y1="690" x2="1060" y2="712" stroke="#3c4043" stroke-width="1.6" marker-end="url(#arr)"/>
+  <g filter="url(#sh)"><rect x="690" y="716" width="740" height="152" rx="14" fill="#fff" stroke="#1A73E8" stroke-width="1.5"/></g>
+  <text x="708" y="742" font-size="15.5" font-weight="700" fill="#202124">PostgreSQL</text>
+  <text x="808" y="742" font-size="13" fill="#3c4043">user_id on every row · app filter + row-level security · amounts in paise</text>
+  <text x="708" y="762" font-size="12.5" fill="#5f6368">New user → starter pack copied in (bank templates + categories), then private to them</text>
+  <g font-family="Menlo, monospace" font-size="12" fill="#174EA6">
+    <rect x="708" y="774" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="720" y="790">users</text>
+    <rect x="890" y="774" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="902" y="790">ingest_tokens</text>
+    <rect x="1072" y="774" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="1084" y="790">raw_messages</text>
+    <rect x="1254" y="774" width="160" height="24" rx="6" fill="#E8F0FE"/><text x="1266" y="790">accounts</text>
+    <rect x="708" y="804" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="720" y="820">sms_templates</text>
+    <rect x="890" y="804" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="902" y="820">template_samples</text>
+    <rect x="1072" y="804" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="1084" y="820">categories</text>
+    <rect x="1254" y="804" width="160" height="24" rx="6" fill="#E8F0FE"/><text x="1266" y="820">super_categories</text>
+    <rect x="708" y="834" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="720" y="850">merchants</text>
+    <rect x="890" y="834" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="902" y="850">merchant_aliases</text>
+    <rect x="1072" y="834" width="170" height="24" rx="6" fill="#E8F0FE"/><text x="1084" y="850">transactions</text>
+    <rect x="1254" y="834" width="160" height="24" rx="6" fill="#E8F0FE"/><text x="1266" y="850">splits</text>
+  </g>
+
+  <!-- ===================== Bottom: states + notes ===================== -->
+  <rect x="30" y="905" width="700" height="150" rx="14" fill="#fff" stroke="#DADCE0"/>
+  <text x="50" y="933" font-size="14" font-weight="700" fill="#202124">STATES</text>
+  <text x="50" y="963" font-size="13" fill="#3c4043" font-weight="700">Raw message</text>
+  <g font-family="Menlo, monospace" font-size="12">
+    <rect x="160" y="948" width="90" height="24" rx="12" fill="#F1F3F4"/><text x="172" y="964" fill="#3c4043">RECEIVED</text>
+    <text x="258" y="964" fill="#5f6368">→</text>
+    <rect x="278" y="948" width="100" height="24" rx="12" fill="#E6F4EA"/><text x="290" y="964" fill="#1E7E34">PROCESSED</text>
+    <text x="388" y="964" fill="#5f6368">or</text>
+    <rect x="410" y="948" width="90" height="24" rx="12" fill="#FEF3E2"/><text x="422" y="964" fill="#B45309">UNPARSED</text>
+    <text x="510" y="964" fill="#5f6368">or</text>
+    <rect x="532" y="948" width="84" height="24" rx="12" fill="#F1F3F4"/><text x="544" y="964" fill="#5f6368">IGNORED</text>
+  </g>
+  <text x="50" y="1003" font-size="13" fill="#3c4043" font-weight="700">Transaction</text>
+  <g font-family="Menlo, monospace" font-size="12">
+    <rect x="160" y="988" width="116" height="24" rx="12" fill="#FCE8E6"/><text x="172" y="1004" fill="#C5221F">NEEDS_REVIEW</text>
+    <text x="284" y="1004" fill="#5f6368">⇄</text>
+    <rect x="304" y="988" width="100" height="24" rx="12" fill="#E6F4EA"/><text x="316" y="1004" fill="#1E7E34">CONFIRMED</text>
+    <text x="414" y="1004" fill="#5f6368">or</text>
+    <rect x="436" y="988" width="84" height="24" rx="12" fill="#F1F3F4"/><text x="448" y="1004" fill="#5f6368">IGNORED</text>
+    <text x="532" y="1004" font-family="-apple-system, Helvetica, sans-serif" font-size="12" fill="#5f6368">+ reconciled flag (phase 2)</text>
+  </g>
+  <text x="50" y="1030" font-size="12" fill="#5f6368">IGNORED raw message = OTP, promo or repeated SMS · UNPARSED = no template yet, waits in review</text>
+  <text x="50" y="1047" font-size="12" fill="#5f6368">Manual edits always win over re-processing · re-run engine after a template fix</text>
+
+  <rect x="750" y="905" width="700" height="150" rx="14" fill="#fff" stroke="#DADCE0"/>
+  <text x="770" y="933" font-size="14" font-weight="700" fill="#202124">NOT IN v1 / OPEN</text>
+  <g font-size="13" fill="#5f6368">
+    <text x="770" y="960">• No auto transfer detection — card bill payments may be counted twice</text>
+    <text x="770" y="982">• Statement format (CSV / Excel / PDF) still to be decided</text>
+    <text x="770" y="1004">• Credits/refunds, past-data import, web UI technology: see doc §10</text>
+    <text x="770" y="1026">• Off-site encrypted DB backups and home-server uptime still to design</text>
+    <text x="770" y="1046">• Arrows: <tspan fill="#E8710A" font-weight="700">orange</tspan> = Form push over HTTPS · <tspan fill="#1A73E8" font-weight="700">blue</tspan> = statement upload from web app</text>
+  </g>
+</svg>
